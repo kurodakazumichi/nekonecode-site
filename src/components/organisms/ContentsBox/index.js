@@ -8,11 +8,11 @@ export default class ContentsBox extends React.Component {
     date: "",
   }
   render() {
-    const { img, title, description, date } = this.props
+    const { img, title, date } = this.props
     return (
       <div className="o-contentsBox">
         <div className="kv">
-          <img className="image" src={img} />
+          <img className="image" src={img} alt="" />
         </div>
         <div className="info">
           <span className="title">{title}</span>
