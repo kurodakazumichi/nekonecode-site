@@ -1,0 +1,30 @@
+.p-index {
+  .about {
+    font-size: 2.2rem;
+    padding: 15rem 3rem;
+    text-align: center;
+    line-height: 2.5em;
+    margin-bottom: 1rem;
+    filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.6));
+  }
+
+  h2 {
+    font-size: 2rem;
+    text-align: center;
+    padding-bottom: 0.6em;
+    margin-bottom: 2em;
+    border-bottom: 1px solid;
+    border-image: linear-gradient(to right, #fff 0%, #999 50%, #fff 100%);
+    border-image-slice: 1;
+  }
+
+  .contents {
+    display: flex;
+    margin-bottom: 10em;
+    justify-content: space-between;
+
+    .o-contentsBox {
+      width: 32%;
+    }
+  }
+}
