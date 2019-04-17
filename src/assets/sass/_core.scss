@@ -1,0 +1,25 @@
+/**
+ * レスポンシブ対応
+ * ブレイクポイントとなるpxを定義
+ */
+$breakpoints: (
+  tab: 481px,
+  /* タブレット縦,スマートフォン横 */ pc: 769px /* デスクトップ,タブレット縦 */,
+);
+
+/**
+ * レスポンシブを書くときの関数
+ * @include mq() { ... }   タブレット用スタイル
+ * @include mq(pc) { ... } デスクトップ用スタイル
+ */
+@mixin mq($breakpoint: tab) {
+  @media (min-width: #{ map-get($breakpoints, $breakpoint)}) {
+    @content;
+  }
+}
+
+html,
+body {
+  font-family: "M PLUS Rounded 1c";
+  font-size: 62.5%;
+}
