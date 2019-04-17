@@ -1,1 +1,1 @@
-import "./src/styles/reset.css"
+import "./src/assets/css/reset.css"
