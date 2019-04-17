@@ -1,0 +1,28 @@
+@import "../../../assets/sass/core";
+
+.header {
+  position: relative;
+  background: white;
+  border-bottom: 1px solid #9a9a9a;
+
+  display: flex;
+  justify-content: center;
+
+  .logo {
+    font-size: 1.2rem;
+    position: absolute;
+    left: 0.5em;
+    top: 0.5em;
+
+    font-weight: bold;
+  }
+}
+
+.header nav ul {
+  display: flex;
+}
+
+.header nav ul li {
+  font-size: 1.6rem;
+  padding: 1em;
+}
