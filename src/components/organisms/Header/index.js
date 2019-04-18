@@ -10,7 +10,7 @@ export default class Header extends React.Component {
   render() {
     return (
       <header className="header">
-        <span class="logo">{this.props.title}</span>
+        <span className="logo">{this.props.title}</span>
         <nav>
           <ul>
             <li>
