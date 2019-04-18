@@ -2,6 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../../layouts/Standard"
 import Markdown from "../../atoms/Markdown"
+import Icon, { StyleType } from "../../atoms/Icon"
 import * as Util from "../../../util"
 import "./style.scss"
 export const query = graphql`
@@ -49,7 +50,10 @@ export default class Note extends React.Component {
     return (
       <Layout breadcrumb={this.breadcrumb}>
         <div className="t-note">
-          <Markdown data={post} />
+          <Markdown
+            data={post}
+            icon={<Icon style={StyleType.Regular} type="sticky-note" />}
+          />
         </div>
       </Layout>
     )
