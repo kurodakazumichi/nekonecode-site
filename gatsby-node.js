@@ -54,18 +54,26 @@ exports.createPages = async ({ graphql, actions }) => {
  */
 function createPagesOfBooksGroup(node, actions) {
   const { createPage } = actions
-  const { slug, template } = node.fields
-  const regSlug = `/^${slug}[0-9]+/$/`
+  const { slug, template, name } = node.fields
+
+  // contextの変数はページ内のGraphQLで利用可能な変数として渡されます。
+  const context = { slug }
+
+  // Bookの時はBookに含まれるNoteを検索するためのパラメータを追加
+  if (name === "index") {
+    const regSlug = `/^${slug}[0-9]+/$/`
+    context.regSlug = regSlug
+  }
+  // Noteの時は、親のBookの情報を検索するためのパラメーターを追加
+  else {
+    const bookSlug = "/" + Object.values(splitSlug(slug)).join("/") + "/"
+    context.bookSlug = bookSlug
+  }
 
   createPage({
     path: slug,
     component: path.resolve(template),
-    context: {
-      // Data passed to context is available
-      // in page queries as GraphQL variables.
-      slug,
-      regSlug,
-    },
+    context,
   })
 }
 
