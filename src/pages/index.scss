@@ -21,10 +21,20 @@
   .contents {
     display: flex;
     margin-bottom: 10em;
-    justify-content: space-between;
+    justify-content: left;
+    flex-wrap: wrap;
 
     .o-contentsBox {
       width: 32%;
+      margin-bottom: 3rem;
+      margin-left: 2%;
+
+      &:nth-of-type(1) {
+        margin-left: 0;
+      }
+      &:nth-of-type(4n) {
+        margin-left: 0;
+      }
     }
   }
 }
