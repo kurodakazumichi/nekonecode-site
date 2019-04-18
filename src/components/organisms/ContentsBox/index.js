@@ -1,29 +1,53 @@
 import React from "react"
+import { Link } from "gatsby"
+import * as Define from "../../../define"
 import "./style.scss"
+
 export default class ContentsBox extends React.Component {
+  /**
+   * デフォルトプロパティ
+   */
   static defaultProps = {
     img: "",
     title: "",
     description: "",
     date: "",
+    to: "/",
   }
-  render() {
-    const { img, title, date } = this.props
-    return (
-      <div className="o-contentsBox">
-        <div className="kv">
-          <img className="image" src={img} alt="" />
-        </div>
-        <div className="info">
-          <span className="title">{title}</span>
-          {this.Description}
-        </div>
 
-        <div className="date">{date}</div>
+  /**
+   * 描画
+   */
+  render() {
+    const { title, date, to } = this.props
+
+    return (
+      <Link to={to} className="o-contentsBox">
+        <div>
+          {this.KeyVisual}
+          <div className="info">
+            <span className="title">{title}</span>
+            {this.Description}
+          </div>
+
+          <div className="date">{date}</div>
+        </div>
+      </Link>
+    )
+  }
+
+  /** KeyVisual */
+  get KeyVisual() {
+    const src = this.props.img ? this.props.img : Define.Src.DUMMY_KV
+
+    return (
+      <div className="kv">
+        <img className="image" src={src} alt="" />
       </div>
     )
   }
 
+  /** 解説 */
   get Description() {
     if (!this.props.description) {
       return null
