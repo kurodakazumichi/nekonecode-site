@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import * as Define from "../../../define"
+import Icon, { StyleType } from "../../atoms/Icon"
 import "./style.scss"
 
 export default class ContentsBox extends React.Component {
@@ -30,7 +31,10 @@ export default class ContentsBox extends React.Component {
             {this.Description}
           </div>
 
-          <div className="date">{date}</div>
+          <div className="date">
+            <Icon style={StyleType.Regular} type="clock" />
+            {date}
+          </div>
         </div>
       </Link>
     )
