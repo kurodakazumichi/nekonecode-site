@@ -30,11 +30,6 @@ export default class Icon extends React.Component {
     addClass: "",
   }
 
-  /** コンストラクタ */
-  constructor(props) {
-    super(props)
-  }
-
   /** 描画 */
   render() {
     return <i className={this.className} />

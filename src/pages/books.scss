@@ -1,0 +1,27 @@
+.p-books {
+  h1 {
+    font-size: 3.8rem;
+    margin-bottom: 10rem;
+  }
+
+  section {
+    margin-bottom: 10rem;
+    h2 {
+      font-size: 3rem;
+    }
+  }
+
+  .books {
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+
+    .o-contentsBox {
+      width: 32%;
+
+      &:nth-of-type(n + 2) {
+        margin-left: 2%;
+      }
+    }
+  }
+}

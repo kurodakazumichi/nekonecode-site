@@ -16,8 +16,8 @@ export default class BreadCrumb extends React.Component {
 
     return links.map((link, index) => {
       return (
-        <React.Fragment>
-          <li key={index}>
+        <React.Fragment key={index}>
+          <li>
             <Link to={link.to}>{link.caption}</Link>
           </li>
           {index !== lastIndex && (

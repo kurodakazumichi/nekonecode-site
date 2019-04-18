@@ -1,7 +1,8 @@
 import React from "react"
+import { graphql } from "gatsby"
 import Layout from "../components/layouts/Standard"
 import ContentsBox from "../components/organisms/ContentsBox"
-import "./styles/index.scss"
+import "./index.scss"
 export default class extends React.Component {
   render() {
     return (
@@ -17,14 +18,17 @@ export default class extends React.Component {
           <h2>初心者へ</h2>
           <div className="contents">
             <ContentsBox
+              img="https://junjun-web.net/wp-content/uploads/2019/04/scroll-junk-640x336.png"
+              title="初心者がプログラムを学ぶ前に覚えておくと少しマシになること"
+              date="2019.04.17"
+              to="/books/misc/before-the-program"
+              description="初心者がプログラムを学ぶときに立ちはだかるのは、これくらい知ってるよねという暗黙の了解。いや知らねーよ！"
+            />
+            <ContentsBox
               img="https://junjun-web.net/wp-content/uploads/2019/03/headline-simple-design-640x336.png"
               title="HTML #01"
               date="2019.04.17"
-            />
-            <ContentsBox
-              img="https://junjun-web.net/wp-content/uploads/2019/04/scroll-junk-640x336.png"
-              title="HTML #02"
-              date="2019.04.17"
+              to="/books/html/beginner"
             />
             <ContentsBox
               img="https://junjun-web.net/wp-content/uploads/2019/03/iconsvg-640x336.png"
@@ -33,16 +37,46 @@ export default class extends React.Component {
             />
           </div>
           <h2>新着</h2>
-          <div class="contents">
-            <ContentsBox
-              img="https://junjun-web.net/wp-content/uploads/2019/03/password-checkup-640x336.png"
-              title="HTML #02"
-              description="わかりやすくまとめました。"
-              date="2019.04.17"
-            />
+          <div className="contents">
+            {this.props.data.allMarkdownRemark.edges.map(({ node }, key) => {
+              return (
+                <ContentsBox
+                  key={key}
+                  to={node.fields.slug}
+                  title={node.frontmatter.title}
+                  date={node.frontmatter.date}
+                  img={node.frontmatter.img}
+                />
+              )
+            })}
           </div>
         </div>
       </Layout>
     )
   }
 }
+export const query = graphql`
+  query {
+    allMarkdownRemark(
+      filter: { fields: { group: { eq: "books" }, name: { ne: "index" } } }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      totalCount
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            date(formatString: "YYYY.MM.DD")
+            img
+          }
+          fields {
+            slug
+            group
+          }
+          excerpt
+        }
+      }
+    }
+  }
+`

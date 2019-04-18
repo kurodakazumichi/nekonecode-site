@@ -1,0 +1,9 @@
+.t-book {
+  .notes {
+    display: flex;
+    justify-content: space-around;
+    .o-contentsBox {
+      width: 32%;
+    }
+  }
+}

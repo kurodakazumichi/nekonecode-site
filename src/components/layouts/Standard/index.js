@@ -1,6 +1,7 @@
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
 import { Helmet } from "react-helmet"
+import BreadCrumb from "../../atoms/Breadcrumb"
 import Header from "../../organisms/Header"
 import "./style.scss"
 
@@ -14,6 +15,9 @@ const query = graphql`
   }
 `
 export default class extends React.Component {
+  static defaultProps = {
+    breadcrumb: [],
+  }
   render() {
     return (
       <StaticQuery
@@ -28,6 +32,7 @@ export default class extends React.Component {
             </Helmet>
             <div className="l-standard">
               <Header title={data.site.siteMetadata.title} />
+              <BreadCrumb links={this.props.breadcrumb} />
               <main>
                 <div className="container">{this.props.children}</div>
               </main>
