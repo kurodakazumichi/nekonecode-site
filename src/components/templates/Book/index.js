@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 import Layout from "../../layouts/Standard"
 import ContentsBox from "../../organisms/ContentsBox"
 import Markdown from "../../atoms/Markdown"
+import Icon from "../../atoms/Icon"
 import * as Util from "../../../util"
 import "./style.scss"
 
@@ -56,7 +57,7 @@ export default class Book extends React.Component {
     return (
       <Layout breadcrumb={this.breadcrumb}>
         <div className="t-book">
-          <Markdown data={book} />
+          <Markdown data={book} icon={<Icon type="book" />} />
 
           <div className="notes">
             {notes.map((data, key) => {
