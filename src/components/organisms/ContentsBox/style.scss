@@ -1,6 +1,8 @@
 .o-contentsBox {
   display: block;
   overflow: hidden;
+  position: relative;
+
   border-bottom: 3px solid;
   border-radius: 5px 5px 0 0;
   border-image: linear-gradient(to right, #6eb7db 0%, #f6d580 100%);
@@ -15,6 +17,7 @@
 
   .info {
     padding: 1rem;
+    margin-bottom: 2rem;
     .title {
       font-size: 1.8rem;
       line-height: 1.3em;
@@ -29,6 +32,9 @@
   }
 
   .date {
+    position: absolute;
+    bottom: 0;
+    right: 0;
     font-size: 1.4rem;
     padding: 0.5em;
     text-align: right;
