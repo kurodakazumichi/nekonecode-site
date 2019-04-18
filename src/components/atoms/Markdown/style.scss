@@ -3,9 +3,19 @@
   line-height: 1.8em;
   padding: 10rem 0;
 
-  h1 {
+  .title {
+    display: flex;
     font-size: 3.8rem;
     margin-bottom: 2em;
+
+    .a-icon,
+    h1 {
+      line-height: 1.5em;
+    }
+
+    .a-icon {
+      margin-right: 0.2em;
+    }
   }
 
   h2 {

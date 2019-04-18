@@ -38,7 +38,7 @@ export default class Icon extends React.Component {
   /** CSSクラス名 */
   get className() {
     return ClassNames(
-      "icon",
+      "a-icon",
       this.props.style,
       `fa-${this.props.type}`,
       this.props.addClass
