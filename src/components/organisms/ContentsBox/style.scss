@@ -1,11 +1,11 @@
 .o-contentsBox {
   display: block;
-  border-radius: 5px 5px 0 0;
-  border-bottom: 3px solid #000;
-  box-shadow: 0 0 8px gray;
   overflow: hidden;
-  border-image: linear-gradient(to right, #00dbde 0%, #fc00ff 100%);
+  border-bottom: 3px solid;
+  border-radius: 5px 5px 0 0;
+  border-image: linear-gradient(to right, #6eb7db 0%, #f6d580 100%);
   border-image-slice: 1;
+  box-shadow: 0 0 8px gray;
 
   .kv {
     .image {
@@ -17,9 +17,12 @@
     padding: 1rem;
     .title {
       font-size: 1.8rem;
+      line-height: 1.3em;
+      font-weight: bold;
     }
     .desc {
       font-size: 1.4rem;
+      line-height: 1.3em;
       padding-top: 1em;
       color: #7a7a7a;
     }
