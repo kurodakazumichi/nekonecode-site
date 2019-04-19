@@ -21,6 +21,7 @@ export default class extends React.Component {
               title="初心者がプログラムを学ぶ前に覚えておくと少しマシになること"
               date="2019.04.17"
               to="/books/misc/before-the-program"
+              img="/books/misc/before-the-program/book.png"
               description="初心者がプログラムを学ぶときに立ちはだかるのは、これくらい知ってるよねという暗黙の了解。いや知らねーよ！"
             />
           </div>
