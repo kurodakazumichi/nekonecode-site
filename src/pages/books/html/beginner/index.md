@@ -1,7 +1,6 @@
 ---
 title: "HTML入門"
 date: "2017-08-10"
-img: "https://junjun-web.net/wp-content/uploads/2019/03/headline-simple-design-640x336.png"
 ---
 
 Visual Studio Code とは？

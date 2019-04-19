@@ -18,22 +18,10 @@ export default class extends React.Component {
           <h2>初心者へ</h2>
           <div className="contents">
             <ContentsBox
-              img="https://junjun-web.net/wp-content/uploads/2019/04/scroll-junk-640x336.png"
               title="初心者がプログラムを学ぶ前に覚えておくと少しマシになること"
               date="2019.04.17"
               to="/books/misc/before-the-program"
               description="初心者がプログラムを学ぶときに立ちはだかるのは、これくらい知ってるよねという暗黙の了解。いや知らねーよ！"
-            />
-            <ContentsBox
-              img="https://junjun-web.net/wp-content/uploads/2019/03/headline-simple-design-640x336.png"
-              title="HTML #01"
-              date="2019.04.17"
-              to="/books/html/beginner"
-            />
-            <ContentsBox
-              img="https://junjun-web.net/wp-content/uploads/2019/03/iconsvg-640x336.png"
-              title="HTML #02"
-              date="2019.04.17"
             />
           </div>
           <h2>新着</h2>
