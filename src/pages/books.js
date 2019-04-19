@@ -43,24 +43,31 @@ export default class extends React.Component {
             return (
               <section key={category}>
                 <h2>{Util.Names.category(category)}</h2>
-                <div className="books">
-                  {this.categorized[category].map((books, key) => {
-                    const props = {
-                      key,
-                      img: books.frontmatter.img,
-                      title: books.frontmatter.title,
-                      description: books.frontmatter.desc,
-                      date: books.frontmatter.date,
-                      to: books.fields.slug,
-                    }
-                    return <ContentsBox {...props} />
-                  })}
-                </div>
+                {this.Books(category)}
               </section>
             )
           })}
         </article>
       </Layout>
+    )
+  }
+
+  Books(category) {
+    const books = this.categorized[category]
+    return (
+      <div className="books">
+        {books.map((book, key) => {
+          const props = {
+            key,
+            img: book.frontmatter.img,
+            title: book.frontmatter.title,
+            description: book.frontmatter.desc,
+            date: book.frontmatter.date,
+            to: book.fields.slug,
+          }
+          return <ContentsBox {...props} />
+        })}
+      </div>
     )
   }
 }
