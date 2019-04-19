@@ -1,13 +1,21 @@
 .p-books {
+  padding-top: 5rem;
   h1 {
     font-size: 3.8rem;
     margin-bottom: 10rem;
+    text-align: center;
   }
 
   section {
     margin-bottom: 10rem;
     h2 {
       font-size: 3rem;
+      text-align: center;
+      padding-bottom: 0.6em;
+      margin-bottom: 1em;
+      border-bottom: 1px solid;
+      border-image: linear-gradient(to right, #fff 0%, #999 50%, #fff 100%);
+      border-image-slice: 1;
     }
   }
 
