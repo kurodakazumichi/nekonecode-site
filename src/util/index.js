@@ -6,7 +6,7 @@ const Breadcrumb = {
     const category = slug.category
     return [
       { caption: "Books", to: "/books" },
-      { caption: category, to: `/books#${category}` },
+      { caption: Names.category(category), to: `/books#${category}` },
     ]
   },
 
@@ -14,10 +14,23 @@ const Breadcrumb = {
     const slug = new Slug(_slug)
     return [
       { caption: "Books", to: "/books" },
-      { caption: slug.category, to: `/books#${slug.category}` },
+      { caption: Names.category(slug.category), to: `/books#${slug.category}` },
       { caption: book.title, to: slug.raw },
     ]
   },
 }
 
-export { Slug, Breadcrumb }
+const Names = {
+  category(category) {
+    switch (category) {
+      case "html":
+        return "HTML"
+      case "misc":
+        return "雑多なもの"
+      case "zzz":
+        return "ネタ帳"
+    }
+    return ""
+  },
+}
+export { Slug, Breadcrumb, Names }
