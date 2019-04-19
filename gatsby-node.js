@@ -92,6 +92,7 @@ function createNodeFieldsOfMarkdownRemark(data) {
   const slug = createFilePath({ node, getNode, basePath: `pages` })
   const group = splitSlug(slug).group
   const category = splitSlug(slug).category
+  const varity = splitSlug(slug).varity
   const name = getFileName(node.fileAbsolutePath)
   const template = getTemplateComponentPath(group, name)
 
@@ -99,6 +100,7 @@ function createNodeFieldsOfMarkdownRemark(data) {
   createNodeField({ node, name: `slug`, value: slug })
   createNodeField({ node, name: `group`, value: group })
   createNodeField({ node, name: `category`, value: category })
+  createNodeField({ node, name: `varity`, value: varity })
   createNodeField({ node, name: `name`, value: name })
   createNodeField({ node, name: `template`, value: template })
 }
