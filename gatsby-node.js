@@ -91,12 +91,14 @@ function createNodeFieldsOfMarkdownRemark(data) {
   // Fieldに追加したい情報を生成
   const slug = createFilePath({ node, getNode, basePath: `pages` })
   const group = splitSlug(slug).group
+  const category = splitSlug(slug).category
   const name = getFileName(node.fileAbsolutePath)
   const template = getTemplateComponentPath(group, name)
 
   // Fieldを追加
   createNodeField({ node, name: `slug`, value: slug })
   createNodeField({ node, name: `group`, value: group })
+  createNodeField({ node, name: `category`, value: category })
   createNodeField({ node, name: `name`, value: name })
   createNodeField({ node, name: `template`, value: template })
 }
