@@ -1,4 +1,5 @@
 import Slug from "./slug"
+import * as Service from "./service"
 
 const Breadcrumb = {
   createDataForBook(_slug) {
@@ -33,4 +34,4 @@ const Names = {
     return ""
   },
 }
-export { Slug, Breadcrumb, Names }
+export { Slug, Breadcrumb, Names, Service }
