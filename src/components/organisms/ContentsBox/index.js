@@ -14,6 +14,7 @@ export default class ContentsBox extends React.Component {
     description: "",
     date: "",
     to: "/",
+    label: "",
   }
 
   /**
@@ -24,6 +25,7 @@ export default class ContentsBox extends React.Component {
 
     return (
       <Link to={to} className="o-contentsBox">
+        {this.Label}
         <div>
           {this.KeyVisual}
           <div className="info">
@@ -40,6 +42,13 @@ export default class ContentsBox extends React.Component {
     )
   }
 
+  get Label() {
+    const { label } = this.props
+
+    if (!label) return null
+
+    return <span className="label">{label}</span>
+  }
   /** KeyVisual */
   get KeyVisual() {
     const src = this.props.img ? this.props.img : Define.Src.DUMMY_KV
