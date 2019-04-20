@@ -2,21 +2,18 @@ import Slug from "./slug"
 import * as Service from "./service"
 
 const Breadcrumb = {
-  createDataForBook(_slug) {
-    const slug = new Slug(_slug)
-    const category = slug.category
+  createDataForBook(node) {
     return [
       { caption: "Books", to: "/books" },
-      { caption: Names.category(category), to: `/books#${category}` },
+      { caption: Names.category(node.category), to: `/books#${node.category}` },
     ]
   },
 
-  craeteDataForNote(_slug, book) {
-    const slug = new Slug(_slug)
+  craeteDataForNote(node) {
     return [
       { caption: "Books", to: "/books" },
-      { caption: Names.category(slug.category), to: `/books#${slug.category}` },
-      { caption: book.title, to: slug.raw },
+      { caption: Names.category(node.category), to: `/books#${node.category}` },
+      { caption: node.title, to: node.slug },
     ]
   },
 }

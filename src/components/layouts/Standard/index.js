@@ -14,9 +14,17 @@ const query = graphql`
     }
   }
 `
+
 export default class extends React.Component {
   static defaultProps = {
     breadcrumb: [],
+    leftContents: null,
+  }
+
+  get Left() {
+    if (!this.props.leftContents) return null
+
+    return <div className="left">{this.props.leftContents}</div>
   }
   render() {
     return (
@@ -34,7 +42,8 @@ export default class extends React.Component {
               <Header title={data.site.siteMetadata.title} />
               <BreadCrumb links={this.props.breadcrumb} />
               <main>
-                <div className="container">{this.props.children}</div>
+                {this.Left}
+                <div className="main">{this.props.children}</div>
               </main>
             </div>
           </React.Fragment>

@@ -1,12 +1,21 @@
 .a-markdown {
   font-size: 2.2rem;
   line-height: 1.8em;
-  padding: 10rem 0;
+  padding: 7rem 2rem;
 
   .title {
     display: flex;
     font-size: 3.8rem;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
+    border-bottom: 2px solid #9a9a9a;
+    border-image: linear-gradient(
+      to right,
+      #fff 0%,
+      #6eb7db 20%,
+      #f6d580 80%,
+      #fff 100%
+    );
+    border-image-slice: 1;
 
     .a-icon,
     h1 {
@@ -19,19 +28,36 @@
   }
 
   h2 {
+    border-bottom: 1px solid #9a9a9a;
     font-size: 3rem;
-    margin-bottom: 1em;
+    line-height: 1.5em;
+    margin-top: 5em;
+    margin-bottom: 1.3em;
+    border-image: linear-gradient(to right, #fff 0%, #000 50%, #fff 100%);
+    border-image-slice: 1;
   }
 
   p {
-    margin-bottom: 7rem;
+    margin-bottom: 5rem;
   }
 
   em {
-    color: red;
+    color: #3261ab;
+    font-style: normal;
+    font-weight: bold;
   }
 
   strong {
-    color: brown;
+    color: #c7243a;
+  }
+
+  a {
+    color: #009f8c;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #3db680;
+    text-decoration: underline;
   }
 }

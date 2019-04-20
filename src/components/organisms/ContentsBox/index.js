@@ -13,7 +13,7 @@ export default class ContentsBox extends React.Component {
     title: "",
     description: "",
     date: "",
-    to: "/",
+    slug: "/",
     label: "",
   }
 
@@ -21,10 +21,10 @@ export default class ContentsBox extends React.Component {
    * 描画
    */
   render() {
-    const { title, date, to } = this.props
+    const { title, date, slug } = this.props
 
     return (
-      <Link to={to} className="o-contentsBox">
+      <Link to={slug} className="o-contentsBox">
         {this.Label}
         <div>
           {this.KeyVisual}

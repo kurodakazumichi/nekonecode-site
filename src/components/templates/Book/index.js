@@ -1,3 +1,6 @@
+/******************************************************************************
+ * import area
+ *****************************************************************************/
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../../layouts/Standard"
@@ -7,6 +10,39 @@ import Icon from "../../atoms/Icon"
 import * as Util from "../../../util"
 import "./style.scss"
 
+/******************************************************************************
+ * １書籍を表示するテンプレート
+ *****************************************************************************/
+export default class Book extends React.Component 
+{
+  constructor(props) {
+    super(props)
+    const { markdownRemark, allMarkdownRemark } = props.data
+    this.book       = Util.Service.createNode(markdownRemark)
+    this.notes      = Util.Service.getNotes(allMarkdownRemark.edges)
+    this.breadcrumb = Util.Breadcrumb.createDataForBook(this.book)
+  }
+
+  render() {
+    return (
+      <Layout breadcrumb={this.breadcrumb}>
+        <div className="t-book">
+          <Markdown data={this.book} icon={<Icon type="book" />} />
+
+          <div className="notes">
+            {this.notes.map((node, key) => {
+              return <ContentsBox key={key} {...node} />
+            })}
+          </div>
+        </div>
+      </Layout>
+    )
+  }
+}
+
+/******************************************************************************
+ * GraphQL
+ *****************************************************************************/
 export const query = graphql`
   query($slug: String!, $regSlug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
@@ -16,6 +52,9 @@ export const query = graphql`
       }
       fields {
         slug
+        group
+        name
+        category
       }
     }
     allMarkdownRemark(
@@ -40,38 +79,3 @@ export const query = graphql`
     }
   }
 `
-
-export default class Book extends React.Component {
-  constructor(props) {
-    super(props)
-    this.breadcrumb = Util.Breadcrumb.createDataForBook(
-      this.props.data.markdownRemark.fields.slug
-    )
-  }
-
-  render() {
-    const { data } = this.props
-    const book = data.markdownRemark
-    const notes = data.allMarkdownRemark.edges
-
-    return (
-      <Layout breadcrumb={this.breadcrumb}>
-        <div className="t-book">
-          <Markdown data={book} icon={<Icon type="book" />} />
-
-          <div className="notes">
-            {notes.map((data, key) => {
-              return (
-                <ContentsBox
-                  key={key}
-                  {...data.node.frontmatter}
-                  to={data.node.fields.slug}
-                />
-              )
-            })}
-          </div>
-        </div>
-      </Layout>
-    )
-  }
-}

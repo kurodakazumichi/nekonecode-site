@@ -63,7 +63,7 @@ export default class extends React.Component {
             title: book.frontmatter.title,
             description: book.frontmatter.desc,
             date: book.frontmatter.date,
-            to: book.fields.slug,
+            slug: book.fields.slug,
           }
           return <ContentsBox {...props} />
         })}
