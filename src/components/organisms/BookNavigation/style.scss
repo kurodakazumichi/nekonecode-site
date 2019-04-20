@@ -1,0 +1,17 @@
+.o-bookNavigation {
+  .title {
+    display: block;
+    font-size: 1.6rem;
+    font-weight: bold;
+    padding: 1em;
+  }
+  .notes {
+    .note {
+      font-size: 1.6rem;
+      padding: 1em;
+      &.--active {
+        color: #1f91be;
+      }
+    }
+  }
+}
