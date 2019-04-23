@@ -1,8 +1,24 @@
 .a-markdown {
   font-size: 2.2rem;
   line-height: 1.8em;
-  padding: 7rem 2rem;
+  padding: 0 2rem;
 
+  .sc-root {
+    .sc-editor{
+      height:400px;
+
+      code {
+        background: repeating-linear-gradient(#FDFDFD 0, #FDFDFD 24px, #F7F9FB 24px, #F7F9FB 48px);
+      }
+    }
+    .sc-comment{
+      height: 250px;
+    }
+
+    ol{
+      margin-left:0;
+    }
+  }
   .title {
     display: flex;
     font-size: 3.8rem;
@@ -37,6 +53,12 @@
     border-image-slice: 1;
   }
 
+  h3 {
+    font-size: 2.8rem;
+    margin-bottom: 1em;
+    border-bottom: 1px solid #eee;
+  }
+
   p {
     margin-bottom: 5rem;
   }
@@ -59,5 +81,28 @@
   a:hover {
     color: #3db680;
     text-decoration: underline;
+  }
+
+  ol, ul {
+    margin-left: 2em;
+    margin-bottom: 1.5em;
+  }
+
+  blockquote {
+    border-left: 5px solid #000;
+    background:#ddd;
+    padding:1em;
+  }
+
+  pre>code[class*="language-"]{
+    padding: 0 0.5em;
+  }
+
+  :not(pre)>code[class*="language-"] {
+    margin:0 0.2em;
+  }
+
+  .gatsby-highlight {
+    font-size: 1.6rem;
   }
 }
