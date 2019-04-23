@@ -14,6 +14,8 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.8.1",
+    "@puyan/stepcode": "^0.0.1",
+    "axios": "^0.18.0",
     "classnames": "^2.2.6",
     "gatsby": "^2.3.16",
     "gatsby-plugin-react-helmet": "^3.0.12",
@@ -22,6 +24,7 @@
     "gatsby-remark-prismjs": "^3.2.8",
     "gatsby-source-filesystem": "^2.0.29",
     "gatsby-transformer-remark": "^2.3.8",
+    "highlight.js": "^9.15.6",
     "lodash": "^4.17.11",
     "node-sass": "^4.11.0",
     "prismjs": "^1.16.0",
