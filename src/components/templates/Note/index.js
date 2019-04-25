@@ -28,7 +28,7 @@ export default class Note extends React.Component
 
   render() {
     return (
-      <Layout breadcrumb={this.breadcrumb} leftContents={this.Navigation}>
+      <Layout breadcrumb={this.breadcrumb} leftContents={this.Navigation} title={this.note.title}>
         <div className="t-note">
           <Markdown
             data={this.note}

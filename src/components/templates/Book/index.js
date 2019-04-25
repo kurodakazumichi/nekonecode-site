@@ -25,7 +25,7 @@ export default class Book extends React.Component
 
   render() {
     return (
-      <Layout breadcrumb={this.breadcrumb}>
+      <Layout breadcrumb={this.breadcrumb} title={this.book.title}>
         <div className="t-book">
           <Markdown data={this.book} icon={<Icon type="book" />} />
 

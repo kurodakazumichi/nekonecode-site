@@ -19,12 +19,17 @@ export default class extends React.Component {
   static defaultProps = {
     breadcrumb: [],
     leftContents: null,
+    title:""
   }
 
   get Left() {
     if (!this.props.leftContents) return null
-
     return <div className="left">{this.props.leftContents}</div>
+  }
+
+  HeadTitle(siteName) {
+    const title = (this.props.title)? this.props.title : siteName;
+    return (<title>{title}</title>)
   }
   render() {
     return (
@@ -33,6 +38,7 @@ export default class extends React.Component {
         render={data => (
           <React.Fragment>
             <Helmet>
+              {this.HeadTitle(data.site.siteMetadata.title)}
               <link
                 href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:400,700"
                 rel="stylesheet"
