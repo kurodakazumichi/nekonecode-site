@@ -14,7 +14,6 @@ export default class BookNavigation extends React.Component {
     super(props)
     this.ref = React.createRef();
     this.state = {
-      iniY:0,
       floating:false
     }
 
@@ -23,19 +22,7 @@ export default class BookNavigation extends React.Component {
     this.onScroll = this.onScroll.bind(this);
   }
 
-  onScroll() {
-    // スクロールしてBookNavigationが画面上部へ隠れる場合はフローティングする
-    const isFloating = (this.state.iniY < window.pageYOffset);
-
-    if (isFloating !== this.state.floating) {
-      this.setState({floating:isFloating})
-    }  
-  }
-
   componentDidMount() {
-    const rect = this.ref.current.getBoundingClientRect();
-    this.setState({iniY:rect.y});
-
     window.addEventListener('scroll', this.onScroll, false);
   }
 
@@ -43,6 +30,16 @@ export default class BookNavigation extends React.Component {
     // ここでイベントを破棄しておかないと、他のページへ遷移し
     // このコンポーネントが存在しない状態でもonScrollが発火しエラーが出る
     window.removeEventListener('scroll', this.onScroll, false);
+  }
+
+  onScroll() {
+    // スクロールしてBookNavigationが画面上部へ隠れる場合はフローティングする
+    const rect = this.ref.current.getBoundingClientRect();
+    const isFloating = (rect.top < 0);
+    
+    if (isFloating !== this.state.floating) {
+      this.setState({floating:isFloating})
+    }
   }
 
   Note(note, key) {
@@ -66,19 +63,18 @@ export default class BookNavigation extends React.Component {
   render() {
     const { title, notes } = this.props
 
-    const style = {
-      position: (this.state.floating)? "fixed" : "relative",
-      top:0
-    }
+    const innerClass = ClassNames("inner", {"floating": this.state.floating})
 
     return (
-      <nav className="o-bookNavigation" style={style} ref={this.ref}>
-        <span className="title">{title}</span>
-        <ul className="notes">
-          {notes.map((note, key) => {
-            return this.Note(note, key)
-          })}
-        </ul>
+      <nav className="o-bookNavigation" ref={this.ref}>
+        <div className={innerClass}>
+          <span className="title">{title}</span>
+          <ul className="notes">
+            {notes.map((note, key) => {
+              return this.Note(note, key)
+            })}
+          </ul>
+        </div>
       </nav>
     )
   }
