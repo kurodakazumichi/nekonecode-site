@@ -17,20 +17,32 @@ export default class BookNavigation extends React.Component {
       iniY:0,
       floating:false
     }
+
+    // addEventListnerのタイミングでbindする方法だと
+    // removeEventListenerがうまくいかないのでここでbindする。
+    this.onScroll = this.onScroll.bind(this);
+  }
+
+  onScroll() {
+    // スクロールしてBookNavigationが画面上部へ隠れる場合はフローティングする
+    const isFloating = (this.state.iniY < window.pageYOffset);
+
+    if (isFloating !== this.state.floating) {
+      this.setState({floating:isFloating})
+    }  
   }
 
   componentDidMount() {
     const rect = this.ref.current.getBoundingClientRect();
     this.setState({iniY:rect.y});
 
-    window.addEventListener('scroll', () => {
-      // スクロールしてBookNavigationが画面上部へ隠れる場合はフローティングする
-      const isFloating = (this.state.iniY < window.pageYOffset);
+    window.addEventListener('scroll', this.onScroll, false);
+  }
 
-      if (isFloating !== this.state.floating) {
-        this.setState({floating:isFloating})
-      }      
-    });
+  componentWillUnmount() {
+    // ここでイベントを破棄しておかないと、他のページへ遷移し
+    // このコンポーネントが存在しない状態でもonScrollが発火しエラーが出る
+    window.removeEventListener('scroll', this.onScroll, false);
   }
 
   Note(note, key) {
