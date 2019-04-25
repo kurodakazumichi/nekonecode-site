@@ -52,7 +52,7 @@ export default class Index extends React.Component {
             <p>そんな奴でもプログラミングができるようになった</p>
             <p>その感動と技術を届けたい</p>
           </div>
-          <h2>初心者へ</h2>
+          {/* <h2>初心者へ</h2>
           <div className="contents">
             {this.booksForBeginner.map((book, key) => {
               const props = {
@@ -65,8 +65,8 @@ export default class Index extends React.Component {
               }
               return <ContentsBox {...props} />
             })}
-          </div>
-          <h2>新着</h2>
+          </div> */}
+          <h2>新着記事</h2>
           <div className="contents">
             {this.notesOfNew.map((node , key) => {
               
