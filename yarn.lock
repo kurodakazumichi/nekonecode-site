@@ -723,7 +723,7 @@
 
 "@puyan/stepcode@^0.0.1":
   version "0.0.1"
-  resolved "http://localhost:4873/@puyan%2fstepcode/-/stepcode-0.0.1.tgz#c76458e0c4f854ed3daa6c7de638281b081a98a7"
+  resolved "http://localhost:4873/@puyan%2fstepcode/-/stepcode-0.0.1.tgz#c32bcd4053d7f3277d4e1ec420da341a6e9b91bd"
   dependencies:
     "@puyan/stepcode-core" "^0.0.1"
     escape-html "^1.0.3"
