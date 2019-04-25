@@ -41,7 +41,6 @@ export default class extends React.Component {
           {this.props.icon}
           <h1>{data.title}</h1>
         </div>
-        <h1 />
         <div dangerouslySetInnerHTML={{ __html: data.html }} />
       </div>
     )
